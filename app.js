@@ -101,6 +101,10 @@ function saveGame() {
     localStorage.setItem('classifica', JSON.stringify(classifica));
 }
 
+function showClassifica() {
+    const classifica = document.querySelector('.')
+}
+
 
 (function shuffleCards() {
     cards.forEach(card => {
