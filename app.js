@@ -68,14 +68,17 @@ function allCardsTurned() {
         party.addConfetti();
         modal.removeAttribute('hidden');
         body.classList.add('win');
-        clearInterval(timerGame);
+        clearInterval(timerGame); //ferma il timer
+        saveGame();
     }
 }
 
+//Impostazioni timer di gioco
 function startGame() {
     const secondsHtml = document.querySelector('.timer__secondi');
     const minutesHtml = document.querySelector('.timer__minuti');
     const startTime = Date.now();
+    
     timerGame = setInterval(()=> {
         const now = Date.now();
         const pastTime = now - startTime;
@@ -85,7 +88,14 @@ function startGame() {
         minutesHtml.innerText = 
             `${time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()}`;
     }, 1000);
+
 }
+
+function saveGame() {
+    const username = prompt('Inserisci il nome del giocatore');
+    
+}
+
 
 (function shuffleCards() {
     cards.forEach(card => {
