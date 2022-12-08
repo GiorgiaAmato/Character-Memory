@@ -98,7 +98,7 @@ function saveGame() {
         minute: 'numeric', second:'numeric'
     }).format(time)});
     //Traformiamo array classifica in stringa
-    localStorage.setItem('classifica', JSON.stringify(classifica))
+    localStorage.setItem('classifica', JSON.stringify(classifica));
 }
 
 
