@@ -75,8 +75,8 @@ modal {
     z-index: 1;
 }
 
-.new-game {
-    margin-top: 15px;
+button {
+    margin-top: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     padding: 5px 10px;
@@ -102,7 +102,6 @@ body.win::after {
 .timer p {
     margin: 0;
     display: flex;
-    display: flex;
     justify-content: center;
     background-color: #f5f5f5;
     color: #1f1e1e;
@@ -120,9 +119,12 @@ body.win::after {
 }
 
 .classifica {
-    height: 360px;
+
+}
+
+.classifica button {
     width: 100%;
-    position: fixed;
-    top: 0;
-    right: -360px;
+    padding: 10px 20px;
+    background-color: rgb(124, 122, 122);
+    color: #f5f5f5;
 }
