@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll(".card");
 const modal = document.querySelector("modal");
 const newGame = modal.querySelector(".new-game");
+const toggleClassifica = document.querySelector(".classifica button");
 
 let turnedCard = false;
 let blockBoard = false;
@@ -102,15 +103,45 @@ function saveGame() {
 }
 
 function showClassifica() {
-    const classifica = document.querySelector('.')
+    const classificaContainer = this.parentElement;
+    if(classificaContainer.classList.contains('aperta')) {
+        classificaContainer.style.right = '-360px';
+        classificaContainer.classList.remove('aperta');
+    } else {
+        classificaContainer.classList.add('aperta');
+        classificaContainer.style.right = 0;
+    }
+}
+
+function ordinaClassifica(a, b) {
+    const timeA = a.time.split(":");
+    const timeB = a.time.split(":");
+    const [minutesA, minutesB] = [timeA[0], timeB[0]];
+    const [secondsA, secondsB] = [timeA[1], timeB[1]];
+    const dataA = new Date(0);
+    dataA.setSeconds(secondsA);
+    dataA.setMinutes(minutesA);
+
+    const dataB = new Date(0)
+    dataB.setMinutes(minutesB);
+    dataB.setSeconds(secondsB);
+
 }
 
 
-(function shuffleCards() {
+(function () {
+    //shuffleCards
     cards.forEach(card => {
         const position = Math.floor(Math.random() * 12);
         card.style.order = position;
-    })
+    });
+
+    //compila Classifica
+    const classContainer = document.querySelector('.classifica__container');
+    const classifica = JSON.parse(localStorage.getItem('classifica')) || [];
+    if (classifica || classifica.length > 0) {
+        classifica.sort(ordinaClassifica);
+    }
 })();
 
 
@@ -119,4 +150,6 @@ cards.forEach(card => card.addEventListener("click", flipCard));
 
 //click sul bottone nuova partita ricarica la pagina e si attiva shuffleCards()
 newGame.addEventListener('click', () => location.reload());
+
+toggleClassifica.addEventListener('click', showClassifica);
 
