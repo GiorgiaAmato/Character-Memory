@@ -4,10 +4,13 @@ const newGame = modal.querySelector(".new-game");
 
 let turnedCard = false;
 let blockBoard = false;
+let timerGame = null;
+let time = null;
 let firstCard, secondCard;
 
 
 function flipCard() {
+    if(!timerGame) startGame();
     if(blockBoard) return; //blocca l'esecuzione della funzione
     if (this === firstCard) return; //per impedire che venga cliccata 2 volte la stessa carta
     
@@ -66,6 +69,21 @@ function allCardsTurned() {
         modal.removeAttribute('hidden');
         body.classList.add('win');
     }
+}
+
+function startGame() {
+    const secondsHtml = document.querySelector('.timer__secondi');
+    const minutesHtml = document.querySelector('.timer__minuti');
+    const startTime = Date.now();
+    timerGame = setInterval(()=> {
+        const now = Date.now();
+        const pastTime = now - startTime;
+        time = new Date(pastTime);
+        secondsHtml.innerText = 
+            `${time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds()}`;
+        minutesHtml.innerText = 
+            `${time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()}`;
+    }, 1000);
 }
 
 (function shuffleCards() {
