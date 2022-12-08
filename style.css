@@ -75,7 +75,7 @@ modal {
     z-index: 1;
 }
 
-button {
+.new-game {
     margin-top: 15px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
