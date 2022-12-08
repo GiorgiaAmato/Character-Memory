@@ -95,7 +95,7 @@ function startGame() {
 function saveGame() {
     const username = prompt('Inserisci il nome del giocatore');
     const classifica = JSON.parse(localStorage.getItem('classifica')) || [];
-    classifica.push({username:username, tempo: new Intl.DateTimeFormat('it', {
+    classifica.push({username:username, time: new Intl.DateTimeFormat('it', {
         minute: 'numeric', second:'numeric'
     }).format(time)});
     //Traformiamo array classifica in stringa
@@ -115,7 +115,7 @@ function showClassifica() {
 
 function ordinaClassifica(a, b) {
     const timeA = a.time.split(":");
-    const timeB = a.time.split(":");
+    const timeB = b.time.split(":");
     const [minutesA, minutesB] = [timeA[0], timeB[0]];
     const [secondsA, secondsB] = [timeA[1], timeB[1]];
     const dataA = new Date(0);
@@ -126,10 +126,12 @@ function ordinaClassifica(a, b) {
     dataB.setMinutes(minutesB);
     dataB.setSeconds(secondsB);
 
+    return dataA > dataB ? 1 : -1;
+
 }
 
 
-(function () {
+(function() {
     //shuffleCards
     cards.forEach(card => {
         const position = Math.floor(Math.random() * 12);
@@ -141,6 +143,9 @@ function ordinaClassifica(a, b) {
     const classifica = JSON.parse(localStorage.getItem('classifica')) || [];
     if (classifica || classifica.length > 0) {
         classifica.sort(ordinaClassifica);
+        classContainer.innerHTML += `<ul>` + classifica.map((record, index) => {
+            return `<li>#${index+1} ${record.username} - ${record.time}`;
+        }).join("") + `</ul>`;
     }
 })();
 
