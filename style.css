@@ -124,8 +124,11 @@ body.win::after {
     position: fixed;
     top: 0;
     right: -360px;
-    background-color: rgb(124, 122, 122);
+    background-color: rgba(46, 46, 46, 0.9);
     transition: all .3s ease;
+    padding: 40px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 
 .classifica button {
@@ -138,4 +141,13 @@ body.win::after {
     border: 0;
     background-color: rgb(124, 122, 122);
     color: #f5f5f5;
+    z-index: 1;
+}
+
+li {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 8px;
+    list-style-type: none;
 }
