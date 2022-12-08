@@ -95,9 +95,7 @@ function startGame() {
 function saveGame() {
     const username = prompt('Inserisci il nome del giocatore');
     const classifica = JSON.parse(localStorage.getItem('classifica')) || [];
-    classifica.push({username:username, time: new Intl.DateTimeFormat('it', {
-        minute: 'numeric', second:'numeric'
-    }).format(time)});
+    classifica.push({username:username, time: new Intl.DateTimeFormat('it', {minute: 'numeric', second:'numeric'}).format(time)});
     //Traformiamo array classifica in stringa
     localStorage.setItem('classifica', JSON.stringify(classifica));
 }
