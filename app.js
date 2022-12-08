@@ -68,6 +68,7 @@ function allCardsTurned() {
         party.addConfetti();
         modal.removeAttribute('hidden');
         body.classList.add('win');
+        clearInterval(timerGame);
     }
 }
 
