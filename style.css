@@ -118,3 +118,11 @@ body.win::after {
     display: inline-block;
     margin: 0 10px;
 }
+
+.classifica {
+    height: 360px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: -360px;
+}
