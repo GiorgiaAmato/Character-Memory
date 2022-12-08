@@ -118,9 +118,24 @@ body.win::after {
     margin: 0 10px;
 }
 
+.classifica {
+    width: 360px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -360px;
+    background-color: rgb(124, 122, 122);
+    transition: all .3s ease;
+}
+
 .classifica button {
-    width: 100%;
-    padding: 10px 20px;
+    height: 36px;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 85px;
+    left: -85px;
+    padding: 0px 20px;
+    border: 0;
     background-color: rgb(124, 122, 122);
     color: #f5f5f5;
 }
