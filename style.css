@@ -96,7 +96,7 @@ body.win::after {
 .timer {
     font-size: 2.5rem;
     color:#ccc;
-    margin-top: 50px;
+    margin: 25px 0;
 }
 
 .timer p {
