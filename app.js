@@ -65,12 +65,14 @@ function allCardsTurned() {
     const flippedCards = document.querySelectorAll(".flip").length;
     if (flippedCards === 12) {
         const body = document.body;
-        const party = new JSConfetti({body});
+        modal.removeAttribute("hidden");
+        const party = new JSConfetti({ body });
         party.addConfetti();
-        modal.removeAttribute('hidden');
-        body.classList.add('win');
+        body.classList.add("win");
         clearInterval(timerGame); //ferma il timer
-        saveGame();
+        let lastCard = setTimeout(() => {
+            saveGame();
+        }, 1200);
     }
 }
 
@@ -93,7 +95,7 @@ function startGame() {
 }
 
 function saveGame() {
-    const username = prompt('Inserisci il nome del giocatore');
+    const username = prompt("Inserisci il nome del giocatore");
     const classifica = JSON.parse(localStorage.getItem('classifica')) || [];
     classifica.push({username:username, time: new Intl.DateTimeFormat('it', {minute: 'numeric', second:'numeric'}).format(time)});
     //Traformiamo array classifica in stringa
