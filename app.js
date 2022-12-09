@@ -2,6 +2,7 @@ const cards = document.querySelectorAll(".card");
 const modal = document.querySelector("modal");
 const newGame = modal.querySelector(".new-game");
 const toggleClassifica = document.querySelector(".classifica button");
+const btnClose = document.querySelector("modal span");
 
 let turnedCard = false;
 let blockBoard = false;
@@ -130,6 +131,10 @@ function ordinaClassifica(a, b) {
 
 }
 
+function hideModal() {
+    modal.style.display = "none";
+}
+
 
 (function() {
     //shuffleCards
@@ -156,5 +161,8 @@ cards.forEach(card => card.addEventListener("click", flipCard));
 //click sul bottone nuova partita ricarica la pagina e si attiva shuffleCards()
 newGame.addEventListener('click', () => location.reload());
 
+//visualizza classifica
 toggleClassifica.addEventListener('click', showClassifica);
 
+//chiudi modale
+btnClose.addEventListener('click', hideModal)
