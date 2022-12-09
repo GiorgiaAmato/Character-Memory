@@ -75,6 +75,10 @@ modal {
     z-index: 1;
 }
 
+modal p {
+ margin-top: 15px;
+}
+
 button {
     margin-top: 20px;
     font-family: 'Poppins', sans-serif;
@@ -168,4 +172,35 @@ li {
             font-size: 1.5rem;
             margin: 25px 0;
         }
+}
+
+/* ! --------------material-icons Google-------------- */
+.material-icons-outlined {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    color: #f5f5f5;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
