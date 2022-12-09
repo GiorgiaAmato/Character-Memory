@@ -165,4 +165,4 @@ newGame.addEventListener('click', () => location.reload());
 toggleClassifica.addEventListener('click', showClassifica);
 
 //chiudi modale
-btnClose.addEventListener('click', hideModal)
+btnClose.addEventListener('click', hideModal);
