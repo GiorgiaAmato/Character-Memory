@@ -79,6 +79,10 @@ modal p {
  margin-top: 15px;
 }
 
+modal span {
+    cursor: pointer;
+}
+
 button {
     margin-top: 20px;
     font-family: 'Poppins', sans-serif;
